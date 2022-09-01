@@ -3,7 +3,7 @@
 // Create obj for storing functions and var that are necessary for
 // using the API
 let weather = {
-    "apiKey": "42bedc78b99fb50bd914c95690409d6b",
+    "apiKey": "",
     fetchWeather: function(city) {
         // Get api data
         fetch(
@@ -28,12 +28,17 @@ let weather = {
         document.querySelector(".humidity").innerText = `Humidity ${humidity} %`
         // Round wind speed to nearest decimal
         document.querySelector(".wind").innerText = `wind speed ${Math.round(speed * 10) / 10} km/h`
+    },
+    search: function () {
+        // Get the value of the search bar and then run our fetchWeather func 
+        this.fetchWeather(document.querySelector(".search-bar").value);
     }
-}
+};
 
+// Search bar
+// Runs when our search btn is clicked
+document.querySelector(".search button").addEventListener("click", function () {
+        // Runs our search func inside our weather obj
+        weather.search();
 
-// // Get url
-// fetch("https://api.openweathermap.org/data/2.5/weather?q=Denver&units=metric&appid=42bedc78b99fb50bd914c95690409d6b"
-// )
-// .then((response)) => response.json() // Once url is fetched do this 
-// .then((data) => console.log(data))
+})
