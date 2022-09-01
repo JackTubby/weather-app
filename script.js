@@ -3,7 +3,7 @@
 // Create obj for storing functions and var that are necessary for
 // using the API
 let weather = {
-    "apiKey": "",
+    "apiKey": "42bedc78b99fb50bd914c95690409d6b",
     fetchWeather: function(city) {
         // Get api data
         fetch(
@@ -19,6 +19,15 @@ let weather = {
         const { temp, humidity } = data.main;
         const { speed } = data.wind;
         console.log(name, icon, description, temp, humidity, speed)
+        // Display data on page
+        document.querySelector(".city").innerText = "Weather in " + name;
+        document.querySelector(".icon").src = `https://openweathermap.org/img/wn/${icon}@2x.png`
+        document.querySelector(".description").innerText = description;
+        // Round temp to nearest integer
+        document.querySelector(".temp").innerText = `${Math.round(temp)}°C`;
+        document.querySelector(".humidity").innerText = `Humidity ${humidity} %`
+        // Round wind speed to nearest decimal
+        document.querySelector(".wind").innerText = `wind speed ${Math.round(speed * 10) / 10} km/h`
     }
 }
 
