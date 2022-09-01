@@ -9,7 +9,8 @@ let weather = {
         fetch(
             `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${this.apiKey}`)
         .then((response) => response.json())
-        .then((data) => this.displayWeather(data));
+        .then((data) => this.displayWeather(data))
+        .catch(error => alert(error))
     },
     // Function to display the weather
     displayWeather: function(data) {
