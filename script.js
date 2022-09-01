@@ -50,3 +50,6 @@ document
             weather.search();
         }
 })
+
+// On page load this will run and get current weather in London
+weather.fetchWeather("London");
