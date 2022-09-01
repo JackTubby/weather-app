@@ -28,6 +28,8 @@ let weather = {
         document.querySelector(".humidity").innerText = `Humidity ${humidity} %`
         // Round wind speed to nearest decimal
         document.querySelector(".wind").innerText = `wind speed ${Math.round(speed * 10) / 10} km/h`
+        // Remove loading class which remove hidden visibility
+        document.querySelector(".weather").classList.remove("loading");
     },
     search: function () {
         // Get the value of the search bar and then run our fetchWeather func 
