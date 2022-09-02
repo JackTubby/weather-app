@@ -3,7 +3,7 @@
 // Create obj for storing functions and var that are necessary for
 // using the API
 let weather = {
-    "apiKey": "",
+    "apiKey": "ea17b3582079e82250e81005c8baf784",
     fetchWeather: function(city) {
         // Get api data
         fetch(
@@ -30,6 +30,8 @@ let weather = {
         document.querySelector(".wind").innerText = `wind speed ${Math.round(speed * 10) / 10} km/h`
         // Remove loading class which remove hidden visibility
         document.querySelector(".weather").classList.remove("loading");
+        // Make image relevant to place that is searched
+        document.body.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${name}')`
     },
     search: function () {
         // Get the value of the search bar and then run our fetchWeather func 
